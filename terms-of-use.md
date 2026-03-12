@@ -42,10 +42,10 @@ To the fullest extent permitted by law, Try This One and its developer are not l
 
 ## Governing Law
 
-These terms are governed by the laws of [your state/country], without regard to conflict of law principles.
+These terms are governed by the laws of [Virginia, USA], without regard to conflict of law principles.
 
 ---
 
 ## Contact
 
-Questions? Email: [your-email@example.com]
+Questions? Email: [km574744@gmail.com]
