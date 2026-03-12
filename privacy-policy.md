@@ -42,7 +42,7 @@ The App is not directed at children under 13. We do not knowingly collect data f
 
 ## Contact
 
-Questions about this policy? Email: [your-email@example.com]
+Questions about this policy? Email: [km574744@gmail.com]
 
 ---
 
