@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Try This One</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:      #0c0c0c;
+      --surface: #131313;
+      --border:  #2a2a2a;
+      --text:    #ededed;
+      --dim:     #909090;
+      --muted:   #606060;
+      --blue:    #8bb8d4;
+      --blue-dim: rgba(139,184,212,0.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── Noise texture overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    /* ── Header ── */
+    .site-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 64px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .logo-light {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 8px var(--blue);
+    }
+
+    .logo-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .logo-name span:nth-child(1) { color: var(--muted); }
+    .logo-name span:nth-child(2) { color: var(--dim); }
+    .logo-name span:nth-child(3) { color: var(--blue); }
+
+    .header-back {
+      margin-left: auto;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+    .header-back:hover { color: var(--dim); }
+
+    /* ── Page title ── */
+    .page-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(26px, 5vw, 36px);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .page-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Sections ── */
+    section {
+      margin-bottom: 44px;
+    }
+
+    h2 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--blue);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: 'DM Mono', monospace;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    p {
+      color: var(--dim);
+      margin-bottom: 12px;
+      font-weight: 300;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(139,184,212,0.3);
+      transition: border-color 0.2s;
+    }
+    a:hover { border-color: var(--blue); }
+
+    /* ── Data flow cards ── */
+    .flow-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .flow-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .flow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+      margin-top: 7px;
+      flex-shrink: 0;
+      opacity: 0.7;
+    }
+
+    .flow-content { flex: 1; }
+
+    .flow-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 3px;
+      letter-spacing: 0.04em;
+    }
+
+    .flow-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ── Notice box ── */
+    .notice {
+      background: var(--blue-dim);
+      border: 1px solid rgba(139,184,212,0.2);
+      border-radius: 6px;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: var(--dim);
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: gap;
+      gap: 12px;
+    }
+
+    .footer-brand {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      border-bottom: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--dim); }
+
+    @media (max-width: 480px) {
+      .wrap { padding: 40px 20px 72px; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="site-header">
+      <a class="logo" href="index.html">
+        <div class="logo-light"></div>
+        <div class="logo-name">
+          <span>Try </span><span>This </span><span>One</span>
+        </div>
+      </a>
+      <a class="header-back" href="terms-of-use.html">Terms of Use →</a>
+    </header>
+
+    <p class="page-eyebrow">Legal</p>
+    <h1>Privacy Policy</h1>
+    <p class="page-meta">Last updated: March 2026</p>
+
+    <section>
+      <h2>Overview</h2>
+      <p>Try This One is an AI-powered creative tool for UGC creators. This policy explains what data the App collects, where it goes, and how long it's kept. The short version: we collect as little as possible, store almost nothing on our end, and don't sell or share your data.</p>
+    </section>
+
+    <section>
+      <h2>What We Collect</h2>
+      <div class="flow-list">
+        <div class="flow-item">
+          <div class="flow-dot"></div>
+          <div class="flow-content">
+            <div class="flow-label">Brief text</div>
+            <p class="flow-desc">When you use the Ideas feature, the product name and details you type are sent to our proxy server and forwarded to the Anthropic API to generate creative angles and captions. This text is not stored by us after the response is returned.</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-dot"></div>
+          <div class="flow-content">
+            <div class="flow-label">App preferences</div>
+            <p class="flow-desc">Your name and settings are stored locally on your device using AsyncStorage. This data never leaves your device.</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-dot"></div>
+          <div class="flow-content">
+            <div class="flow-label">Saved ideas & notes</div>
+            <p class="flow-desc">Ideas you save and sticky notes on your home screen are stored locally on your device only. We do not have access to them.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Where Your Data Goes</h2>
+      <p>Requests from the App are routed through a proxy server hosted on Railway, which calls:</p>
+      <div class="flow-list">
+        <div class="flow-item">
+          <div class="flow-dot"></div>
+          <div class="flow-content">
+            <div class="flow-label">Anthropic API</div>
+            <p class="flow-desc">Generates creative angles and captions from your brief text. Governed by <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic's Privacy Policy</a>.</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-dot"></div>
+          <div class="flow-content">
+            <div class="flow-label">Google Sheets (read-only)</div>
+            <p class="flow-desc">Serves the curated audio library in the Market Research tab. No user data is sent to Google Sheets.</p>
+          </div>
+        </div>
+      </div>
+      <div class="notice">
+        No data is sold, shared with advertisers, or used to train AI models.
+      </div>
+    </section>
+
+    <section>
+      <h2>Data Retention</h2>
+      <p><strong>Brief text inputs</strong> are not retained by us after a response is returned.</p>
+      <p><strong>Local storage</strong> — preferences, saved ideas, and home screen notes — lives on your device and is deleted when you uninstall the App.</p>
+    </section>
+
+    <section>
+      <h2>Children's Privacy</h2>
+      <p>The App is not directed at children under 13. We do not knowingly collect data from children under 13.</p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Questions about this policy? Email <a href="mailto:km574744@gmail.com">km574744@gmail.com</a></p>
+    </section>
+
+    <p style="font-size:13px; color: var(--muted); margin-top: 32px; font-style: italic;">
+      This policy may be updated as the App evolves. Continued use after changes constitutes acceptance of the updated policy.
+    </p>
+
+    <footer>
+      <span class="footer-brand">© 2026 Try This One</span>
+      <nav class="footer-links">
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="terms-of-use.html">Terms</a>
+      </nav>
+    </footer>
+
+  </div>
+</body>
+</html>
